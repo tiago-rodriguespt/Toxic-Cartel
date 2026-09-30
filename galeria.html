@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="Imagens/logo.png" type="image/x-icon">
+    <title>Galeria</title>
+    <style>
+        @charset "UTF-8";
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+@font-face {
+    font-family: 'rye';
+    src: url(../Fontes/Rye/Rye-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'family';
+    src: url(../Fontes/BungeeInline-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'arma';
+    src: url(../Fontes/ARMADIRA.ttf);
+}
+
+body{
+    background-image: url(../Imagens/fundo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+nav img {
+    max-width: 100%;
+    height: 0%;
+    margin: 0 auto 0 auto;
+}
+
+nav  {
+    font-family: 'rye';
+    font-size: 2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 0 auto;
+    min-width: 1558px;
+    max-width: 2000px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+nav a.atual {
+    color: white;
+    text-decoration: none;
+    text-underline-offset: 20px;
+}
+
+nav a:hover {
+    color: red;
+    text-decoration: underline;
+    text-underline-offset: 20px;
+}
+
+div.active {
+    display: flex;
+    gap: 60px;
+    margin: 0 auto;
+    min-width: 0%;
+}
+
+div.active2 {
+    display: flex;
+    margin: 0 auto;
+    min-width: 20%;
+    gap: 60px;
+    align-items: center;
+}
+
+.text {
+    color: #ec8181;
+    margin: auto;
+    text-align: center;
+    font-size: 3em;
+    font-family: 'BungeeInline-Regular';
+    text-shadow: 0px 0px 20px #f4707082;
+}
+
+.text2 {
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+    font-size: 3em;
+    text-shadow: 0px 0px 20px #fcf7f7af;
+}
+
+.caixa {
+    border: 1px solid white;
+    border-radius: 20px;
+    font-family: 'family';
+    width: 180vh;
+    height: 85vh;
+    background-color: #ff00005f;
+    margin: 40px auto;
+}
+
+.txt {
+    color: white;
+    text-shadow: 0px 0px 20px rgba(183, 183, 183, 0.5);
+    font-size: 2em;
+    padding: 60px;
+}
+
+.imagem img {
+    width: 40vh;
+}
+
+.imagem {
+    margin-left: 60px;
+    margin-bottom: 25px;
+    width: 40vh;
+    height: 22.5vh;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.caixa01 {
+    height: auto;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagem:hover {
+    transform: translateY(-20px); scale:(1.02);
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="box">
+            <nav>
+                <div class="active">
+                    <a href="index.html" class="atual">Ínicio</a>
+                    <a href="recruta.html" class="recruta">Recrutamento</a>
+                    <a href="regras.html">Regras</a>
+                </div>
+                <div>
+                    <p><img src="Imagens/logo.png" alt="Logo"></p>
+                </div>
+                <div class="active2">
+                    <a href="galeria.html">Galeria</div>
+                    <a href="https://discord.gg/4PhV3ZZP">Discord</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="caixa">
+            <div class="txt"><h1>GALERIA DO TOXIC CARTEL</h1></div>
+            <div class="caixa01">
+                <div class="imagem">
+                    <a href="https://cdn.discordapp.com/attachments/1485013451892985991/1551719841457512478/2026092.JPG?ex=6abe33f7&is=6abce277&hm=41f47b1a0472fb3384dfcb4f7525f544c0318aca015b8dc53d036f7754923daf&" target="_blank"><img src="Imagens/galeria01.JPG" alt="imagem01"></a>
+                </div>
+                <div class="imagem">
+                    <a href="https://cdn.discordapp.com/attachments/1485013451892985991/1551719840429899936/2026093.JPG?ex=6abe33f7&is=6abce277&hm=f7072cdcdf3c7769f397ff20af01bed404f95f727e1457dbfbb06c0fa9ce7176&" target="_blank"><img src="Imagens/galeria02.JPG" alt="imagem02"></a>
+                </div>
+                <div class="imagem">
+                    <a href="https://cdn.discordapp.com/attachments/1485013451892985991/1551719836177010768/2098531.JPG?ex=6abe33f6&is=6abce276&hm=80e9df4c24b7e48f14ff96640a29dfcb2a701ac576e1b2f725448a830196fc7b&" target="_blank"><img src="Imagens/galeria03.JPG" alt="imagem03"></a>
+                </div>
+            </div>
+            <div class="caixa01">
+                <div class="imagem">
+                    <a href="https://cdn.discordapp.com/attachments/1485013451892985991/1552350088226017350/file_00000000089c81f49770a3e6c6f7c171.png?ex=6abddbee&is=6abc8a6e&hm=8e1d75e75067eaa06b2c3d4eb5b45cc317678ef47f35bfe9a0cc3321e5c7ce1e&" target="_blank"><img src="Imagens/galeria04.png" alt="imagem04"></a>
+                </div>
+                <div class="imagem">
+                    <a href="https://cdn.discordapp.com/attachments/1485013451892985991/1551721117897596928/Cartel_cars.jpg?ex=6abe3528&is=6abce3a8&hm=937c931024927d824e9aa4c2df9432b45a546f59d9e9ffc904ac18fb1ffdbc4c&" target="_blank"><img src="Imagens/galeria05.jpg" alt="imagem05"></a>
+                </div>
+                <div class="imagem">
+                    <a href="https://cdn.discordapp.com/attachments/1485013451892985991/1551719040660148365/image.png?ex=6abe3338&is=6abce1b8&hm=372e726e90e4568d33911f031d00112bc0af7a87cbc21900ba21b1c74df683b9&" target="_blank"><img src="Imagens/galeria06.png" alt="imagem06"></a>
+                </div>
+            </div>
+            <div class="caixa01">
+                <div class="imagem">
+                    <a href="https://cdn.discordapp.com/attachments/1485013451892985991/1551719625572753478/image.png?ex=6abe33c4&is=6abce244&hm=9428e05c0a1d15c8cbcd952f710b41d9fd77a2bfd349dae94f105892c6f2b386&" target="_blank"><img src="Imagens/galeria07.png" alt="imagem07"></a>
+                </div>
+                <div class="imagem">
+                    <a href="https://cdn.discordapp.com/attachments/1485013451892985991/1551767070281310248/MedalTVArmaReforger20260921230033266.png?ex=6abe5ff3&is=6abd0e73&hm=09962bbdfb091f6e0ea9148fd27d930cdd56b9ecd05afcc8f9cc5dc6d5275d9d&" target="_blank"><img src="Imagens/galeria08.png" alt="imagem08"></a>
+                </div>
+                <div class="imagem">
+                    <a href="https://cdn.discordapp.com/attachments/1485013451892985991/1552818146593742848/image.png?ex=6abe3e58&is=6abcecd8&hm=4514fa94afdde3d294ed4f49eec194b508b8e2c3d48423b29d11e069b8aa3e83&" target="_blank"><img src="Imagens/galeria09.png" alt="imagem09"></a>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

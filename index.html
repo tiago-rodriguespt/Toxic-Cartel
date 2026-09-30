@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toxic Cartel</title>
+    <link rel="shortcut icon" href="Imagens/logo.png" type="image/x-icon">
+    <style>
+        @charset "UTF-8";
+
+@font-face {
+    font-family: 'rye';
+    src: url(../Fontes/Rye/Rye-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'family';
+    src: url(../Fontes/BungeeInline-Regular.ttf);
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background-image: url(../Imagens/fundo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+nav img {
+    max-width: 100%;
+    height: 0%;
+    margin: 0 auto 0 auto;
+}
+
+nav  {
+    font-family: 'rye';
+    font-size: 2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 0 auto;
+    min-width: 1558px;
+    max-width: 2000px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+nav a.atual {
+    color: red;
+    text-decoration: underline;
+    text-underline-offset: 20px;
+}
+
+nav a:hover {
+    color: red;
+    text-decoration: underline;
+    text-underline-offset: 20px;
+}
+
+
+
+nav:hover a.atual {
+    color: red;
+    text-decoration: none;
+}
+
+nav a.atual:hover {
+    color: red;
+    text-decoration: underline;
+    text-underline-offset: 20px;
+}
+
+.active:hover a.atual {
+    color: white;
+    text-decoration: none;
+}
+
+div.active {
+    display: flex;
+    gap: 60px;
+    margin: 0 auto;
+    min-width: 0%;
+}
+
+div.active2 {
+    display: flex;
+    margin: 0 auto;
+    min-width: 20%;
+    gap: 60px;
+    align-items: center;
+}
+
+.text {
+    color: white;
+    margin: auto;
+    text-align: center;
+    font-size: 3em;
+    font-family: 'family';
+    text-shadow: 0px 0px 20px #7c7b7b91;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+.cor {
+    color: #ec8181;
+    font-size: 2.4em;
+    text-shadow: 0px 0px 20px #f180808e;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="box">
+            <nav>
+                <div class="active">
+                    <a href="index.html" class="atual">Ínicio</a>
+                    <a href="recruta.html" class="recruta">Recrutamento</a>
+                    <a href="regras.html">Regras</a>
+                </div>
+                <div class="image">
+                    <p><img src="Imagens/logo.png" alt="Logo"></p>
+                </div>
+                <div class="active2">
+                    <a href="galeria.html">Galeria</div>
+                    <a href="https://discord.gg/4PhV3ZZP">Discord</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="text">
+            <h1 class="cor">BEM-VINDO AO TOXIC CARTEL</h1> <br>
+            <h2>O SEU CAMINHO COMEÇA AQUI.</h2>
+        </div>
+    </main>
+</body>
+</html>

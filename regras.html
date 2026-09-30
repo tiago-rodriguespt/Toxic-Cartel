@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="Imagens/logo.png" type="image/x-icon">
+    <title>Regras</title>
+    <style>
+        @charset "UTF-8";
+
+@font-face {
+    font-family: 'rye';
+    src: url(../Fontes/Rye/Rye-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'family';
+    src: url(../Fontes/BungeeInline-Regular.ttf);
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background-image: url(../Imagens/fundo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+nav img {
+    max-width: 100%;
+    height: 0%;
+    margin: 0 auto 0 auto;
+}
+
+nav  {
+    font-family: 'rye';
+    font-size: 2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 0 auto;
+    min-width: 1558px;
+    max-width: 2000px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+nav a.atual {
+    color: red;
+    text-decoration: underline;
+    text-underline-offset: 20px;
+}
+
+nav a:hover {
+    color: red;
+    text-decoration: underline;
+    text-underline-offset: 20px;
+}
+
+
+
+nav:hover a.atual {
+    color: red;
+    text-decoration: none;
+}
+
+nav a.atual:hover {
+    color: red;
+    text-decoration: underline;
+    text-underline-offset: 20px;
+}
+
+.active:hover a.atual {
+    color: white;
+    text-decoration: none;
+}
+
+div.active {
+    display: flex;
+    gap: 60px;
+    margin: 0 auto;
+    min-width: 0%;
+}
+
+div.active2 {
+    display: flex;
+    margin: 0 auto;
+    min-width: 20%;
+    gap: 60px;
+    align-items: center;
+}
+
+.text {
+    color: white;
+    margin: auto;
+    text-align: center;
+    font-size: 3em;
+    font-family: 'family';
+    text-shadow: 0px 0px 20px #7c7b7b91;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+.cor {
+    color: #ec8181;
+    font-size: 2.4em;
+    text-shadow: 0px 0px 20px #f180808e;
+}
+
+.text h1 {
+    color: #f8a1a1;
+}
+
+.caixa {
+    color: white;
+    background-color: #00000081;
+    margin: 40px auto;
+    padding: 20px;
+    width: 100vh;
+    font-family: 'family';
+    font-size: 2em;
+    border: 1px solid white;
+    border-left: 5px solid red;
+    border-radius: 20px;
+    box-shadow: 10px 10px 20px #000000e8;
+}
+
+.caixa:hover {
+    background-color: #ffffff5a;
+    color: black;
+    border-top: 5px solid red;
+    border-right: 5px solid red;
+    border-bottom: 5px solid red;
+    border-left: 5px solid black;
+    box-shadow: 10px 10px 20px rgba(177, 2, 2, 0.654);
+    transition: 0.5s;
+}
+
+.n1 {
+    font-size: 2em;
+    margin: 20px;
+    color: red;
+    text-shadow: 0px 0px 20px rgba(253, 0, 0, 0.648);
+}
+
+h2 {
+    text-shadow: 0px 0px 20px #fcf7f7af;
+}
+
+.n11 {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.regra {
+    text-shadow: 0px 0px 20px #fcf7f7af;
+    text-align: justify;
+    margin-left: 150px;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="box">
+            <nav>
+                <div class="active">
+                    <a href="index.html" class="atual">Ínicio</a>
+                    <a href="recruta.html" class="recruta">Recrutamento</a>
+                    <a href="regras.html">Regras</a>
+                </div>
+                <div class="image">
+                    <p><img src="Imagens/logo.png" alt="Logo"></p>
+                </div>
+                <div class="active2">
+                    <a href="galeria.html">Galeria</div>
+                    <a href="https://discord.gg/4PhV3ZZP">Discord</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="text">
+            <h1>REGRAS DO TOXIC CARTEL</h1>
+        </div>
+        <section>
+            <div class="caixa">
+                    <div class="n11">
+                        <div class="n1">01</div>
+                        <h2>LEALDADE</h2>
+                    </div>
+                <div class="regra">Traição ao cartel, venda de informações ou colaboração contra a própria organização será considerada uma falta grave.</div>
+            </div>
+            <div class="caixa">
+                <div class="n11">
+                    <div class="n1">02</div>
+                    <h2>SÍLENCIO</h2>
+                </div>
+                <div class="regra">Informações sobre membros, operações, negócios e locais do cartel não devem sair da organização.</div>
+            </div>
+            <div class="caixa">
+                <div class="n11">
+                    <div class="n1">03</div>
+                    <h2>RESPEITO</h2>
+                </div>
+                <div class="regra">Todos os membros devem respeitar a hierarquia e os restantes elementos. Conflitos internos devem ser resolvidos dentro do cartel.</div>
+            </div>
+            <div class="caixa">
+                <div class="n11">
+                    <div class="n1">04</div>
+                    <h2>ORDENS</h2>
+                </div>
+                <div class="regra">Durante operações, as ordens dos superiores devem ser respeitadas. Problemas ou discordâncias são discutidos posteriormente.</div>
+            </div>
+            <div class="caixa">
+                <div class="n11">
+                    <div class="n1">05</div>
+                    <h2>RDM / VDM</h2>
+                </div>
+                <div class="regra">Não são permitidas mortes ou atropelamentos sem contexto de RP ou sem justificação válida dentro das regras do servidor Legacy.
+                </div>
+            </div>
+                <div class="caixa">
+                <div class="n11">
+                    <div class="n1">06</div>
+                    <h2>ROLEPLAY</h2>
+                </div>
+                <div class="regra">Todas as ações do Toxic Cartel devem ter contexto de RP e respeitar as regras do servidor Legacy RP.</div>
+            </div>
+            <div class="caixa">
+                <div class="n11">
+                    <div class="n1">07</div>
+                    <h2>COMUNICAÇÃO</h2>
+                </div>
+                <div class="regra">Durante operações, a comunicação deve ser clara e objetiva. Evitar brincadeiras ou discussões desnecessárias no rádio operacional.</div>
+            </div>
+            <div class="caixa">
+                <div class="n11">
+                    <div class="n1">08</div>
+                    <h2>NEGÓCIOS</h2>
+                </div>
+                <div class="regra">Negócios realizados em nome do cartel devem ser comunicados à hierarquia. Nenhum membro deve comprometer a organização por iniciativa própria.</div>
+            </div>
+            <div class="caixa">
+                <div class="n11">
+                    <div class="n1">09</div>
+                    <h2>GUERRAS E CONFLITOS</h2>
+                </div>
+                <div class="regra">Nenhum membro inicia uma guerra ou conflito de grande escala em nome do Toxic Cartel sem autorização da liderança.</div>
+            </div>
+            <div class="caixa">
+                <div class="n11">
+                    <div class="n1">10</div>
+                    <h2>REPRESENTAR A CARTEL</h2>
+                </div>
+                <div class="regra">Cada membro deve lembrar-se: quando estás na rua, não representas apenas a ti próprio. Representas o TOXIC CARTEL.</div>
+            </div>
+            <div class="caixa">
+                <div class="n11">
+                    <div class="n1">11</div>
+                    <h2>REGRAS FINANCEIRAS</h2>
+                </div>
+                <div class="regra">Todos os membros estão sujeitos às regras de entrada, pagamento semanal e dívidas do cartel, disponíveis e atualizadas em ⁠💵💰banco-cartel💰💵. O incumprimento das obrigações financeiras pode resultar em sanções decididas pela liderança.
+</div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
