@@ -39,6 +39,7 @@
             max-width: 100%;
             height: auto;
             margin: 0 auto;
+            transition: filter 0.1s ease;
         }
 
         nav {
@@ -107,6 +108,8 @@
             color: #ec8181;
             font-size: 2.4em;
             text-shadow: 0px 0px 20px #f180808e;
+            display: inline-block;
+            transition: text-shadow 0.1s ease, transform 0.1s ease;
         }
 
         /* --- Efeito de Cursor de Terminal --- */
@@ -123,6 +126,28 @@
         @keyframes piscar {
             0%, 100% { opacity: 1; }
             50% { opacity: 0; }
+        }
+
+        /* --- Efeito Glitch (Falha de Sistema) --- */
+        .glitch-efecto {
+            animation: glitch-anim 0.25s linear infinite;
+            text-shadow: -3px 0 red, 3px 0 cyan !important;
+            transform: skew(-2deg);
+        }
+
+        .glitch-logo {
+            animation: glitch-anim 0.25s linear infinite;
+            filter: drop-shadow(-3px 0px red) drop-shadow(3px 0px cyan);
+            transform: skew(-3deg);
+        }
+
+        @keyframes glitch-anim {
+            0% { transform: translate(0) skew(0deg); }
+            20% { transform: translate(-3px, 2px) skew(-2deg); }
+            40% { transform: translate(-2px, -2px) skew(2deg); }
+            60% { transform: translate(3px, 1px) skew(-1deg); }
+            80% { transform: translate(2px, -1px) skew(1deg); }
+            100% { transform: translate(0) skew(0deg); }
         }
 
         /* --- Estilo do Alerta do Cartel (Notificação) --- */
@@ -196,7 +221,6 @@
             display: none;
         }
 
-        /* Efeito de Scanlines (linhas de câmara de vigilância) */
         #security-overlay::before {
             content: " ";
             display: block;
@@ -298,7 +322,7 @@
                 </div>
 
                 <div class="image">
-                    <p><img src="Imagens/logo.png" alt="Logo"></p>
+                    <p><img src="Imagens/logo.png" alt="Logo" id="cartel-logo"></p>
                 </div>
 
                 <div class="active2">
@@ -346,6 +370,24 @@
                     toast.classList.add("ativo");
                 }
             }, 2000);
+
+            // --- 3. Efeito Glitch Aleatório ---
+            setInterval(function() {
+                const logo = document.getElementById("cartel-logo");
+                const titulo = document.getElementById("typing-text");
+
+                if (Math.random() > 0.5) {
+                    if (titulo) {
+                        titulo.classList.add("glitch-efecto");
+                        setTimeout(() => titulo.classList.remove("glitch-efecto"), 250);
+                    }
+                } else {
+                    if (logo) {
+                        logo.classList.add("glitch-logo");
+                        setTimeout(() => logo.classList.remove("glitch-logo"), 250);
+                    }
+                }
+            }, 4000); // Dá uma falha rápida a cada 4 segundos
         };
 
         function fecharAlerta() {
@@ -355,23 +397,20 @@
             }
         }
 
-        // --- 3. Modo Segurança Máxima (Easter Egg: Pressionar 'T' e depois 'C') ---
+        // --- 4. Modo Segurança Máxima (Easter Egg: 'T' e depois 'C') ---
         let teclasPressionadas = "";
         let modoSegurancaAtivo = false;
 
         window.addEventListener("keydown", function(event) {
-            // Regista a tecla pressionada em maiúscula
             let tecla = event.key.toUpperCase();
             
             if (tecla === 'T' || tecla === 'C') {
                 teclasPressionadas += tecla;
                 
-                // Mantém apenas os últimos 2 caracteres
                 if (teclasPressionadas.length > 2) {
                     teclasPressionadas = teclasPressionadas.slice(-2);
                 }
 
-                // Se escreverem "TC", ativa/desativa o modo de segurança
                 if (teclasPressionadas === "TC") {
                     modoSegurancaAtivo = !modoSegurancaAtivo;
                     
@@ -386,10 +425,10 @@
                         banner.style.display = "none";
                     }
 
-                    teclasPressionadas = ""; // Reseta a sequência
+                    teclasPressionadas = "";
                 }
             } else {
-                teclasPressionadas = ""; // Reseta se carregar noutra tecla
+                teclasPressionadas = "";
             }
         });
     </script>
