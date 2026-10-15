@@ -4,142 +4,184 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="Imagens/logo.png" type="image/x-icon">
-    <title>Galeria</title>
+    <title>Galeria - Toxic Cartel</title>
     <style>
         @charset "UTF-8";
 
-* {
-    margin: 0px;
-    padding: 0px;
-}
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
 
-@font-face {
-    font-family: 'rye';
-    src: url('Fontes/Rye/Rye-Regular.ttf');
-}
+        @font-face {
+            font-family: 'rye';
+            src: url('Fontes/Rye/Rye-Regular.ttf');
+        }
 
-@font-face {
-    font-family: 'family';
-    src: url('Fontes/BungeeInline-Regular.ttf');
-}
+        @font-face {
+            font-family: 'family';
+            src: url('Fontes/BungeeInline-Regular.ttf');
+        }
 
-body{
-    background-image: url(https://github.com/tiago-rodriguespt/Toxic-Cartel/blob/main/Imagens/fundo.jpg?raw=true);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    min-height: 100vh;
-}
+        body{
+            background-image: url(https://github.com/tiago-rodriguespt/Toxic-Cartel/blob/main/Imagens/fundo.jpg?raw=true);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
 
-nav img {
-    max-width: 100%;
-    height: 0%;
-    margin: 0 auto 0 auto;
-}
+        /* NAVEGAÇÃO COMPUTADOR (INTACTA) */
+        nav img {
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto;
+        }
 
-nav  {
-    font-family: 'rye';
-    font-size: 2em;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    margin: 0 auto;
-    min-width: 1558px;
-    max-width: 2000px;
-}
+        nav {
+            font-family: 'rye';
+            font-size: 2em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            margin: 0 auto;
+            max-width: 2000px;
+            width: 100%;
+        }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
 
-nav a.atual {
-    color: white;
-    text-decoration: none;
-    text-underline-offset: 20px;
-}
+        nav a.atual {
+            color: red;
+            text-decoration: underline;
+            text-underline-offset: 20px;
+        }
 
-nav a:hover {
-    color: red;
-    text-decoration: underline;
-    text-underline-offset: 20px;
-}
+        nav a:hover {
+            color: red;
+            text-decoration: underline;
+            text-underline-offset: 20px;
+        }
 
-div.active {
-    display: flex;
-    gap: 60px;
-    margin: 0 auto;
-    min-width: 0%;
-}
+        div.active {
+            display: flex;
+            gap: 60px;
+            margin: 0 auto;
+        }
 
-div.active2 {
-    display: flex;
-    margin: 0 auto;
-    min-width: 20%;
-    gap: 60px;
-    align-items: center;
-}
+        div.active2 {
+            display: flex;
+            margin: 0 auto;
+            gap: 60px;
+            align-items: center;
+        }
 
-.text {
-    color: #ec8181;
-    margin: auto;
-    text-align: center;
-    font-size: 3em;
-    font-family: 'BungeeInline-Regular';
-    text-shadow: 0px 0px 20px #f4707082;
-}
+        /* CAIXA DA GALERIA */
+        .caixa {
+            border: 1px solid white;
+            border-radius: 20px;
+            font-family: 'family';
+            width: 90%;
+            max-width: 1200px;
+            background-color: #e61d1d82;
+            margin: 40px auto;
+            padding-bottom: 40px;
+            box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.8);
+        }
 
-.text2 {
-    text-align: center;
-    text-transform: uppercase;
-    color: white;
-    font-size: 3em;
-    text-shadow: 0px 0px 20px #fcf7f7af;
-}
+        .txt {
+            color: white;
+            text-shadow: 0px 0px 20px rgba(183, 183, 183, 0.5);
+            font-size: 1.8em;
+            text-align: center;
+            padding: 40px 20px;
+        }
 
-.caixa {
-    border: 1px solid white;
-    border-radius: 20px;
-    font-family: 'family';
-    width: 180vh;
-    height: 100vh;
-    background-color: #e61d1d82;
-    margin: 40px auto;
-}
+        .caixa01 {
+            width: 100%;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
 
-.txt {
-    color: white;
-    text-shadow: 0px 0px 20px rgba(183, 183, 183, 0.5);
-    font-size: 2em;
-    padding: 60px;
-}
+        .imagem {
+            width: 320px;
+            height: 180px;
+            overflow: hidden;
+            border-radius: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-.imagem img {
-    width: 40vh;
-}
+        .imagem img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-.imagem {
-    margin-left: 60px;
-    margin-bottom: 25px;
-    width: 40vh;
-    height: 22.5vh;
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+        .imagem:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.6);
+        }
 
-.caixa01 {
-    height: auto;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+        /* ========================================================
+           MEDIA QUERY (AJUSTES PARA TELEMÓVEL)
+        ======================================================== */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+                font-size: 1.1em;
+                padding: 10px;
+            }
 
-.imagem:hover {
-    transform: translateY(-20px); scale:(1.02);
-}
+            .image {
+                order: -1;
+            }
+
+            nav img {
+                max-width: 80px;
+            }
+
+            div.active, div.active2 {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .caixa {
+                width: 95%;
+                margin: 20px auto;
+            }
+
+            .txt {
+                font-size: 1em;
+                padding: 20px 10px;
+            }
+
+            .caixa01 {
+                flex-direction: column;
+                gap: 20px;
+                padding: 0 10px;
+            }
+
+            .imagem {
+                width: 100%;
+                max-width: 300px;
+                height: 170px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -147,7 +189,7 @@ div.active2 {
         <div class="box">
             <nav>
                 <div class="active">
-                    <a href="index.html" class="atual">Ínicio</a>
+                    <a href="index.html">Ínicio</a>
                     <a href="recruta.html" class="recruta">Recrutamento</a>
                     <a href="regras.html">Regras</a>
                 </div>
@@ -155,8 +197,8 @@ div.active2 {
                     <p><img src="Imagens/logo.png" alt="Logo"></p>
                 </div>
                 <div class="active2">
-                    <a href="galeria.html">Galeria</div>
-                    <a href="https://discord.gg/4PhV3ZZP">Discord</a>
+                    <a href="galeria.html" class="atual">Galeria</a>
+                    <a href="https://discord.gg/4PhV3ZZP" target="_blank">Discord</a>
                 </div>
             </nav>
         </div>
@@ -164,6 +206,7 @@ div.active2 {
     <main>
         <div class="caixa">
             <div class="txt"><h1>GALERIA DO TOXIC CARTEL</h1></div>
+            
             <div class="caixa01">
                 <div class="imagem">
                     <a href="https://cdn.discordapp.com/attachments/1485013451892985991/1551719841457512478/2026092.JPG?ex=6abe33f7&is=6abce277&hm=41f47b1a0472fb3384dfcb4f7525f544c0318aca015b8dc53d036f7754923daf&" target="_blank"><img src="Imagens/galeria01.JPG" alt="imagem01"></a>
@@ -175,6 +218,7 @@ div.active2 {
                     <a href="https://cdn.discordapp.com/attachments/1485013451892985991/1551719836177010768/2098531.JPG?ex=6abe33f6&is=6abce276&hm=80e9df4c24b7e48f14ff96640a29dfcb2a701ac576e1b2f725448a830196fc7b&" target="_blank"><img src="Imagens/galeria03.JPG" alt="imagem03"></a>
                 </div>
             </div>
+
             <div class="caixa01">
                 <div class="imagem">
                     <a href="https://cdn.discordapp.com/attachments/1485013451892985991/1552350088226017350/file_00000000089c81f49770a3e6c6f7c171.png?ex=6abddbee&is=6abc8a6e&hm=8e1d75e75067eaa06b2c3d4eb5b45cc317678ef47f35bfe9a0cc3321e5c7ce1e&" target="_blank"><img src="Imagens/galeria04.png" alt="imagem04"></a>
@@ -186,6 +230,7 @@ div.active2 {
                     <a href="https://cdn.discordapp.com/attachments/1485013451892985991/1551719040660148365/image.png?ex=6abe3338&is=6abce1b8&hm=372e726e90e4568d33911f031d00112bc0af7a87cbc21900ba21b1c74df683b9&" target="_blank"><img src="Imagens/galeria06.png" alt="imagem06"></a>
                 </div>
             </div>
+
             <div class="caixa01">
                 <div class="imagem">
                     <a href="https://cdn.discordapp.com/attachments/1485013451892985991/1551719625572753478/image.png?ex=6abe33c4&is=6abce244&hm=9428e05c0a1d15c8cbcd952f710b41d9fd77a2bfd349dae94f105892c6f2b386&" target="_blank"><img src="Imagens/galeria07.png" alt="imagem07"></a>
