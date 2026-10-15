@@ -31,6 +31,8 @@
             background-position: center;
             background-attachment: fixed;
             min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
         }
         
         nav img {
@@ -70,7 +72,7 @@
         }
 
         nav:hover a.atual {
-            color: white;
+            color: red;
             text-decoration: none;
         }
 
@@ -107,11 +109,126 @@
             text-shadow: 0px 0px 20px #f180808e;
         }
 
+        /* --- Efeito de Cursor de Terminal --- */
+        .cursor {
+            display: inline-block;
+            width: 12px;
+            height: 0.8em;
+            background-color: #ec8181;
+            margin-left: 5px;
+            vertical-align: middle;
+            animation: piscar 0.7s infinite;
+        }
+
+        @keyframes piscar {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* --- Estilo do Alerta do Cartel (Notificação) --- */
+        #cartel-toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: rgba(15, 15, 15, 0.95);
+            border-left: 5px solid red;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            font-family: Arial, sans-serif;
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            max-width: 350px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            transform: translateY(20px);
+        }
+
+        #cartel-toast.ativo {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .toast-content h4 {
+            color: #ec8181;
+            font-size: 0.95em;
+            margin-bottom: 3px;
+            text-transform: uppercase;
+        }
+
+        .toast-content p {
+            font-size: 0.85em;
+            color: #cccccc;
+        }
+
+        .toast-close {
+            background: none;
+            border: none;
+            color: #888;
+            font-size: 1.2em;
+            cursor: pointer;
+            margin-left: auto;
+        }
+
+        .toast-close:hover {
+            color: white;
+        }
+
+        /* --- Modo Segurança Máxima (Easter Egg) --- */
+        #security-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9998;
+            background: rgba(255, 0, 0, 0.08);
+            box-shadow: inset 0 0 100px rgba(255, 0, 0, 0.4);
+            display: none;
+        }
+
+        /* Efeito de Scanlines (linhas de câmara de vigilância) */
+        #security-overlay::before {
+            content: " ";
+            display: block;
+            position: absolute;
+            top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+            background-size: 100% 4px;
+            z-index: 9999;
+            pointer-events: none;
+        }
+
+        #security-banner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: red;
+            color: black;
+            font-family: 'rye';
+            text-align: center;
+            padding: 8px;
+            font-size: 1.1em;
+            z-index: 10000;
+            display: none;
+            letter-spacing: 2px;
+            box-shadow: 0px 0px 20px red;
+        }
+
         /* ========================================================
-           MEDIA QUERY (AFETA APENAS O TELEMÓVEL)
+            MEDIA QUERY (AFETA APENAS O TELEMÓVEL)
         ======================================================== */
         @media (max-width: 768px) {
-
             nav {
                 flex-direction: column;
                 gap: 15px;
@@ -146,10 +263,31 @@
             h2 {
                 font-size: 1.2em;
             }
+
+            #cartel-toast {
+                bottom: 15px;
+                right: 15px;
+                left: 15px;
+                max-width: none;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Elementos do Modo Segurança Máxima -->
+    <div id="security-banner">🚨 MODO DE SEGURANÇA MÁXIMA — ACESSO RESTRITO AO TOXIC CARTEL 🚨</div>
+    <div id="security-overlay"></div>
+
+    <!-- Alerta / Notificação do Cartel -->
+    <div id="cartel-toast">
+        <div style="font-size: 1.5em;">📡</div>
+        <div class="toast-content">
+            <h4>Canal Encriptado</h4>
+            <p>Nova diretiva tática disponível no Discord oficial do Cartel.</p>
+        </div>
+        <button class="toast-close" onclick="fecharAlerta()">&times;</button>
+    </div>
+
     <header>
         <div class="box">
             <nav>
@@ -172,9 +310,88 @@
     </header>
     <main>
         <div class="text">
-            <h1 class="cor">BEM-VINDO AO TOXIC CARTEL</h1> <br>
+            <h1 class="cor" id="typing-text"></h1> <br>
             <h2>O SEU CAMINHO COMEÇA AQUI.</h2>
         </div>
     </main>
+
+    <script>
+        // --- 1. Efeito de Terminal ---
+        const texto = "BEM-VINDO AO TOXIC CARTEL";
+        const elementoTexto = document.getElementById("typing-text");
+        let index = 0;
+        const velocidade = 75;
+
+        const cursor = document.createElement("span");
+        cursor.className = "cursor";
+
+        function digitar() {
+            if (index < texto.length) {
+                elementoTexto.innerHTML = texto.substring(0, index + 1);
+                elementoTexto.appendChild(cursor);
+                index++;
+                setTimeout(digitar, velocidade);
+            } else {
+                elementoTexto.appendChild(cursor);
+            }
+        }
+
+        window.onload = function() {
+            digitar();
+
+            // --- 2. Sistema de Notificações (Alerta) ---
+            setTimeout(function() {
+                const toast = document.getElementById("cartel-toast");
+                if(toast) {
+                    toast.classList.add("ativo");
+                }
+            }, 2000);
+        };
+
+        function fecharAlerta() {
+            const toast = document.getElementById("cartel-toast");
+            if(toast) {
+                toast.classList.remove("ativo");
+            }
+        }
+
+        // --- 3. Modo Segurança Máxima (Easter Egg: Pressionar 'T' e depois 'C') ---
+        let teclasPressionadas = "";
+        let modoSegurancaAtivo = false;
+
+        window.addEventListener("keydown", function(event) {
+            // Regista a tecla pressionada em maiúscula
+            let tecla = event.key.toUpperCase();
+            
+            if (tecla === 'T' || tecla === 'C') {
+                teclasPressionadas += tecla;
+                
+                // Mantém apenas os últimos 2 caracteres
+                if (teclasPressionadas.length > 2) {
+                    teclasPressionadas = teclasPressionadas.slice(-2);
+                }
+
+                // Se escreverem "TC", ativa/desativa o modo de segurança
+                if (teclasPressionadas === "TC") {
+                    modoSegurancaAtivo = !modoSegurancaAtivo;
+                    
+                    const overlay = document.getElementById("security-overlay");
+                    const banner = document.getElementById("security-banner");
+
+                    if (modoSegurancaAtivo) {
+                        overlay.style.display = "block";
+                        banner.style.display = "block";
+                    } else {
+                        overlay.style.display = "none";
+                        banner.style.display = "none";
+                    }
+
+                    teclasPressionadas = ""; // Reseta a sequência
+                }
+            } else {
+                teclasPressionadas = ""; // Reseta se carregar noutra tecla
+            }
+        });
+    </script>
 </body>
 </html>
